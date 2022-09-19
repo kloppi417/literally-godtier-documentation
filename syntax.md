@@ -62,25 +62,29 @@ The not operator (`!`) reverses the value of any boolean it's put in front of, i
 ### Examples
 
 ```elixir
+import stdio;
+
 if (1 < 5) {
-    print("Less than!");
+    stdio.print("Less than!");
 }
 # Prints 'Less than!'
 ```
 ```elixir
+import stdio;
 const int x = 5;
 
 if (x + 1 > 5) {
-    print("Math!");
+    stdio.print("Math!");
 }
 # Prints 'Math!'
 ```
 ```elixir
+import stdio;
 bool x = !(5 > 6);
 bool y = 99 < 0;
 
 if (x && !y) {
-    print("Not operator!");
+    stdio.print("Not operator!");
 }
 # Prints 'Not operator!'
 ```
@@ -101,8 +105,6 @@ while (i < 10) {
 # Prints 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 ```
 ```elixir
-import stdio;
-
 bool done = false
 while (!done) {
     user = input();
@@ -127,7 +129,7 @@ By default, all variables declared outside of a function are global. Global vari
 import stdio;
 
 function main() -> {
-    print("Hello world!");
+    stdio.print("Hello world!");
 }
 main();
 # Prints 'Hello world!'
@@ -145,7 +147,7 @@ function greeting(str name) -> str {
     str greet = "Hello, ";
     return greet + name;
 }
-print(greeting("world"));
+stdio.print(greeting("world"));
 # Prints 'Hello, world'
 ```
 
@@ -213,6 +215,6 @@ function square(int n) -> int {
 import math, stdio;
 
 int x = 2;
-print(math.square(x));
+stdio.print(math.square(x));
 # Prints 4
 ```
