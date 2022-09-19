@@ -13,7 +13,7 @@
 
 High-Level Brainfuck (HBLF) uses a C-like syntax, with curly braces (`{}`) to indicate scope, and statement declarations terminated with a mandatory semicolon (`;`). Parentheses (`()`) are used for grouping. HLBF intends to minimize boilerplate (but uses semicolons because I'm too lazy to write a JavaScript-style ASI), so an empty file is valid code and can be compiled and executed. HLBF files use the `.hlb` or `.hlbf` file extension. 
 
-If you learn languages by examples, example HLBF code is available in this document, and example files can be found [here](https://github.com/kloppi417/literally-godtier-documentation/blob/main/math.hlbf).
+If you learn languages by examples, example HLBF code is available in this document, and example files can be found [here]().
 
 ## Variables
 
@@ -162,7 +162,9 @@ HLBF provides a few built-in functions:
 
 Packages are a collection of user-written functions that can be imported and used in your code. Package source-code files are written in HLBF, and must have the `@package` decorator at the top of the file. To use a package, create a `packages` folder in the same directory as your main HLBF file, and put the package source-code into that folder.
 
-To use a package, in your main file write `import` followed by the name of the package file, with the file extension omitted. This imports all the functions declared in the package file. Variables can be used in writing packages, but cannot be imported. To import multiple packages on one line, write the names of all the packages you want to import, separated by commas.
+To use a package, in your main file write `import` followed by the name of the package file, with the file extension omitted. This imports all the functions declared in the package file. Variables can be used in writing packages, but cannot be imported. To import multiple packages on one line, write the names of all the packages you want to import, separated by commas. To import all the packages in the `packages` folder, write `import *`.
+
+To use functions from a package in your source code, write the name of the package, `.`, and the name of the function.
 
 ### Globally Installed Packages
 
@@ -193,12 +195,12 @@ The `math` package provides the following useful math-related functions:
 * `arcos(int n) -> int` - returns the inverse cosine of `n`, `0 < n < 1`
 * `arctan(int n) -> int` - returns the inverse tangent of `n`, `0 < n < 1`
 
-The source code for the math package can be found [here](https://github.com/kloppi417/literally-godtier-documentation/blob/main/math.hlbf).
+The source code for the math package can be found [here]().
 
 
 ### Examples
 
-*Excerpt from the [math](https://github.com/kloppi417/literally-godtier-documentation/blob/main/math.hlbf) package:*
+*Excerpt from the [math]() package:*
 ```elixir
 @package
 
@@ -211,6 +213,6 @@ function square(int n) -> int {
 import math, stdio;
 
 int x = 2;
-print(square(x));
+print(math.square(x));
 # Prints 4
 ```
