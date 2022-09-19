@@ -13,7 +13,7 @@
 
 High-Level Brainfuck (HBLF) uses a C-like syntax, with curly braces (`{}`) to indicate scope, and statement declarations terminated with a mandatory semicolon (`;`). Parentheses (`()`) are used for grouping. HLBF intends to minimize boilerplate (but uses semicolons because I'm too lazy to write a JavaScript-style ASI), so an empty file is valid code and can be compiled and executed. HLBF files use the `.hlb` or `.hlbf` file extension. 
 
-If you learn languages by examples, example HLBF code is available in this document, and example files can be found [here]().
+If you learn languages by examples, example HLBF code is available in this document, and example files can be found [here](https://github.com/kloppi417/literally-godtier-documentation/blob/main/math.hlbf).
 
 ## Variables
 
@@ -193,12 +193,12 @@ The `math` package provides the following useful math-related functions:
 * `arcos(int n) -> int` - returns the inverse cosine of `n`, `0 < n < 1`
 * `arctan(int n) -> int` - returns the inverse tangent of `n`, `0 < n < 1`
 
-The source code for the math package can be found [here]().
+The source code for the math package can be found [here](https://github.com/kloppi417/literally-godtier-documentation/blob/main/math.hlbf).
 
 
 ### Examples
 
-*Excerpt from the [math]() package:*
+*Excerpt from the [math](https://github.com/kloppi417/literally-godtier-documentation/blob/main/math.hlbf) package:*
 ```elixir
 @package
 
