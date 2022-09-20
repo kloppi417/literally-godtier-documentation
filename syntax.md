@@ -31,7 +31,7 @@ Variables are mutable by default. You can declare a immutable constant by includ
 ```elixir
 int n;
 n = 5;
-m = n;
+int m = n;
 ```
 ```elixir
 bool x = false;
