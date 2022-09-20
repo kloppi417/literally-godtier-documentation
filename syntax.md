@@ -25,7 +25,7 @@ Variables are declared with a primitive datatype keyword, followed by the variab
 
 Variable initialization and assignment can be combined to one line, using the syntax `<datatype> <name> = <value>;`. Initialized yet unassigned variables are technically not empty, but hold garbage data from previous executions or variables that went out of scope. However, the compiler will stop you from accessing variables until they are assigned, to prevent bugs.
 
-Variables are mutable by default. You can declare a immutable constant by including the `const` keyword before your variable intialization. Constants *must* be assigned on the same line as the initialization, or the compiler will throw an error.
+Variables are mutable by default. You can declare a immutable constant by including the `const` keyword before your variable intialization. Constants *must* be assigned on the same line as the initialization, or the compiler will throw an error. Attempting to reassign a constant will cause the compiler to throw an error.
 
 ### Examples
 ```elixir
@@ -44,7 +44,7 @@ hi = "Hello, doc reader!";
 
 ## If-statements and Conditionals
 
-If-statements are initialized with the `if` keyword, followed by a set of parentheses. Inside the parentheses, and a boolean or conditional statement. The conditional operators currently in HLBF are:
+If-statements are initialized with the `if` keyword, followed by a set of parentheses. Inside the parentheses, add a boolean, boolean-containing variable, or conditional statement. The conditional operators currently in HLBF are:
 
 * `==` - equality
 * `>` - greater than
@@ -74,7 +74,7 @@ import stdio;
 const int x = 5;
 
 if (x + 1 > 5) {
-    stdio.print("Math!");
+    print("Math!");
 }
 # Prints 'Math!'
 ```
@@ -84,7 +84,7 @@ bool x = !(5 > 6);
 bool y = 99 < 0;
 
 if (x && !y) {
-    stdio.print("Not operator!");
+    print("Not operator!");
 }
 # Prints 'Not operator!'
 ```
@@ -129,7 +129,7 @@ By default, all variables declared outside of a function are global. Global vari
 import stdio;
 
 function main() -> {
-    stdio.print("Hello world!");
+    print("Hello world!");
 }
 main();
 # Prints 'Hello world!'
@@ -147,7 +147,7 @@ function greeting(str name) -> str {
     str greet = "Hello, ";
     return greet + name;
 }
-stdio.print(greeting("world"));
+print(greeting("world"));
 # Prints 'Hello, world'
 ```
 
@@ -162,9 +162,9 @@ HLBF provides a few built-in functions:
 
 ## Packages
 
-Packages are a collection of user-written functions that can be imported and used in your code. Package source-code files are written in HLBF, and must have the `@package` decorator at the top of the file. To use a package, create a `packages` folder in the same directory as your main HLBF file, and put the package source-code into that folder.
+Packages are a collection of user-written functions that can be imported and used in your code. Package source-code files are written in HLBF, and must have the `@package` decorator at the top of the file.
 
-To use a package, in your main file write `import` followed by the name of the package file, with the file extension omitted. This imports all the functions declared in the package file. Variables can be used in writing packages, but cannot be imported. To import multiple packages on one line, write the names of all the packages you want to import, separated by commas. To import all the packages in the `packages` folder, write `import *`.
+To use a package, create a `packages` folder in the same directory as your main HLBF file, and put the package source-code into that folder. In your main, file write `import` followed by the name of the package file, with the file extension omitted. This imports all the functions declared in the package file. Variables can be used in writing packages, but cannot be imported. To import multiple packages on one line, write the names of all the packages you want to import, separated by commas. To import all the packages in the `packages` folder, write `import *`.
 
 To use functions from a package in your source code, write the name of the package, `.`, and the name of the function.
 
@@ -179,7 +179,7 @@ The `stdio` package (short for "standard input/output") is the package to use us
 * `input() -> str` - accepts user input and returns it
 * `print(str s)` - prints the parameter `s` to the console
 
-As of right now, the stdio package cheats in how it works. HLBF variables actually exist in Brainfuck memory, rather than solely existing in the compiler's memory, and everything to do with variables, such as copying one variable to another, uses this memory actually stored in Brainfuck. However, when printing a variable with stdio, the compiler pre-computes the value that needs to be outputted, rather than using the Brainfuck variable memory.
+Unlike all other packages, `stdio` does not require you to write `stdio.` before calling a function from the package. This is because as of right now, the stdio package cheats in how it works. HLBF variables actually exist in Brainfuck memory, rather than solely existing in the compiler's memory, and everything to do with variables, such as copying one variable to another, uses this memory actually stored in Brainfuck. However, when printing a variable with stdio, the compiler pre-computes the value that needs to be outputted, rather than using the Brainfuck variable memory.
 
 #### Math
 
@@ -212,9 +212,9 @@ function square(int n) -> int {
 ```
 *Usage in an HLBF project:*
 ```elixir
-import math, stdio;
+import stdio, math;
 
 int x = 2;
-stdio.print(math.square(x));
+print(math.square(x));
 # Prints 4
 ```
